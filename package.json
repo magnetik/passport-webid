@@ -1,0 +1,16 @@
+{
+  "name": "passport-webid",
+  "version": "0.0.1",
+  "description": "Identification via WebID",
+  "author": "Baptiste Lafontaine <baptiste33@gmail.com> (http://www.magnetik.org)",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/magnetik/passport-webid.git"
+  },
+  "main": "./lib/passport-webid",
+  "dependencies": {
+    "passport": ">= 0.1.1"
+  },
+  "engines": { "node": ">= 0.6.0" },
+  "keywords": ["passport", "webid", "auth", "authn", "authentication"]
+}
