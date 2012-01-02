@@ -68,10 +68,13 @@ passport.use(new LocalStrategy(
   }
 ));
 
+var options = {
+    key: fs.readFileSync('./ssl/privatekey.pem'),
+    cert: fs.readFileSync('./ssl/certificate.pem'),
+    requestCert: true
+};
 
-
-
-var app = express.createServer();
+var app = express.createServer(options);
 
 // configure Express
 app.configure(function() {
