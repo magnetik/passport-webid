@@ -1,7 +1,7 @@
 var express = require('express')
   , passport = require('passport')
   , util = require('util')
-  , LocalStrategy = require('passport-local').Strategy;
+  , LocalStrategy = require('../../../passport-webid').Strategy;
   
 
 var users = [
