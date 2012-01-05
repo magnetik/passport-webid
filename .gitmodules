@@ -1,0 +1,3 @@
+[submodule "examples/login/node_modules/webid"]
+	path = examples/login/node_modules/webid
+	url = https://github.com/magnetik/node-webid
