@@ -1,6 +1,7 @@
 var express = require('express')
   , passport = require('passport')
   , util = require('util')
+  , fs = require('fs')
   , WebIDStrategy = require('../../../passport-webid').Strategy;
 
 
@@ -77,20 +78,12 @@ app.get('/account', ensureAuthenticated, function(req, res){
   res.render('account', { user: req.user });
 });
 
-app.get('/login', function(req, res){
-  res.render('login', { user: req.user });
-});
-
-// POST /login
-//   Use passport.authenticate() as route middleware to authenticate the
-//   request.  If authentication fails, the user will be redirected back to the
-//   login page.  Otherwise, the primary route function function will be called,
-//   which, in this example, will redirect the user to the home page.
-app.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/login' }),
+app.get('/login', 
+  passport.authenticate('webid', { failureRedirect: '/fail' }),
   function(req, res) {
     res.redirect('/');
-  });
+});
+
 
 app.get('/logout', function(req, res){
   req.logout();
@@ -107,5 +100,5 @@ app.listen(3000);
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login')
+  res.redirect('/fail')
 }
